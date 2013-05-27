@@ -1,23 +1,3 @@
-# hivend
-
-UI and control software for Hive Vending machine
-
-## Installation
-
-```bash
-$ npm install hivend
-```
-
-## Running the server
-
-```bash $ node lib/hivend.js```
-
-Point web browser at localhost:8888
-
-## License
-
-(The MIT License)
-
 Copyright (c) 2013 Anna Gerber
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

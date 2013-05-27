@@ -1,0 +1,30 @@
+{
+  "name": "hivend",
+  "version": "0.0.1",
+  "description": "UI and control software for Hive Vending machine",
+  "main": "./lib/hivend.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Anna Gerber/hivend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anna Gerber/hivend/issues",
+    "email": "anna.m.gerber@gmail.com"
+  },
+  "keywords": [
+    "vending",
+    "hive"
+  ],
+  "author": {
+    "name": "Anna Gerber",
+    "email": "anna.m.gerber@gmail.com"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
