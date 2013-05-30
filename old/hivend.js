@@ -4,6 +4,7 @@
  */
 var hivend = require("http"),
     url = require("url"),
+    d3 = require("d3"),
     path = require("path"),
     fs = require("fs")
     port = process.argv[2] || 8888;

@@ -2,9 +2,10 @@
   "name": "hivend",
   "version": "0.0.1",
   "description": "UI and control software for Hive Vending machine",
-  "main": "./lib/hivend.js",
+  "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start":"node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,7 @@
     "email": "anna.m.gerber@gmail.com"
   },
   "keywords": [
-    "vending",
+    "vending machine",
     "hive"
   ],
   "author": {
@@ -26,5 +27,11 @@
     "node": ">=0.6"
   },
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "d3": ">=3.0.0",
+    "socketstream": "0.3.x",
+    "ss-stylus": "0.1.x",
+    "ss-hogan": "0.1.x"
+  }
 }
