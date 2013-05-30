@@ -10,9 +10,9 @@ $ npm install hivend
 
 ## Running the server
 
-```bash $ node lib/hivend.js```
+```bash $ node app.js```
 
-Point web browser at localhost:8888
+Point web browser at localhost:3000
 
 ## License
 
