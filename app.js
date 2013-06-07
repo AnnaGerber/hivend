@@ -1,4 +1,4 @@
-// My SocketStream 0.3 app
+// Hive Vending Machine for The Edge
 
 var http = require('http'),
     ss = require('socketstream');
@@ -7,7 +7,7 @@ var http = require('http'),
 ss.client.define('main', {
   view: 'app.html',
   css:  ['libs/reset.css', 'app.styl'],
-  code: ['libs/jquery.min.js', 'app'],
+  code: ['libs/jquery.min.js', 'libs/d3.v3.min.js','app'],
   tmpl: '*'
 });
 

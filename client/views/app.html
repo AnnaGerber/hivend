@@ -7,18 +7,125 @@
   </head>
   <body>
     <div id="content">
-      <a href="https://github.com/socketstream/socketstream">
+      <!--a href="https://github.com/socketstream/socketstream">
         <img src="/images/logo.png" alt="SocketStream Logo" width="160" height="160">
       </a>
       <h1>Welcome to your new realtime app!</h1>
-
-      <!-- QUICK CHAT DEMO-->
       <form id="demo" onsubmit="return false">
         <h3>Quick Chat Demo</h3>
         <h5>Open this page in multiple tabs or browsers and type a message below</h5>
         <div id="chatlog"></div>
         <input id="myMessage" type="text" autocomplete="off">
-      </form>
+      </form-->
     </div>
+
+     <script type="text/javascript">
+ 
+var w = 800,
+    h = 480,
+    px = 120,
+    py = 120;
+    
+var diameter = 150;
+ 
+var offset = diameter / Math.sqrt(3) * 3 / 4;
+var data = [];
+d3.range(0 + py, w - px, Math.sqrt(3) * diameter / 2).map(function(v1) {
+    d3.range(0 + px, h - py, diameter * 3 / 4).map(function(v2, i) {
+        data.push({
+            centroid: [i % 2 ? v1 + offset : v1, v2]
+        });
+    });
+});
+ 
+var svg = d3.select("body")
+    .append("svg:svg")
+    .attr("width", w)
+    .attr("height", h)
+    .attr("pointer-events", "all");
+ 
+update();
+ 
+svg.append("svg:line")
+    .attr("stroke", "red")
+    .attr("x1", 0 + p)
+    .attr("y1", 0 + p)
+    .attr("x2", w - p)
+    .attr("y2", 0 + p);
+      
+svg.append("svg:line")
+    .attr("stroke", "red")
+    .attr("x1", 0 + p)
+    .attr("y1", h - p)
+    .attr("x2", w - p)
+    .attr("y2", h - p);
+      
+svg.append("svg:line")
+    .attr("stroke", "red")
+    .attr("x1", 0 + p)
+    .attr("y1", 0 + p)
+    .attr("x2", 0 + p)
+    .attr("y2", h - p);
+      
+svg.append("svg:line")
+    .attr("stroke", "red")
+    .attr("x1", w - p)
+    .attr("y1", 0 + p)
+    .attr("x2", w - p)
+    .attr("y2", h - p);
+ 
+function update() {
+    svg.selectAll("path")
+        .data(data.map(function(d) { return hex(d.centroid, diameter); }))
+        .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+        .enter()
+        .append("svg:path")
+        .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+        .on("click", click)
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout);
+    svg
+        .call(d3.behavior.zoom().on("zoom", move));
+}
+ 
+function click(d, i) {
+    console.log("click", d, i);
+    d3.select(this)
+        .style("fill", "#FADF5E");
+}
+ 
+function mouseover(d, i) {
+    // honey yellow
+    d3.select(this)
+        .style("fill", "#FADF5E");
+}
+ 
+function mouseout(d, i) {
+    // honey brown
+    d3.select(this)
+        .style("fill", "#E8AB4A");
+}
+ 
+function move() {
+    svg.selectAll("path")
+        .attr("transform",
+            "translate(" + d3.event.translate + ")"
+            + "scale(" + d3.event.scale + ")");
+}
+ 
+function hex(center, diameter, tilted) {
+    if (center == null || center.length != 2) throw new Error("center must be an array [x, y]");
+    if (diameter == null) diameter = 0;
+    if (tilted == null) tilted = false;
+    var a = diameter / 2, 
+        b = (Math.sqrt(3) * a) / 2,
+        x = center[0],
+        y = center[1];
+    return tilted ? 
+        [[x - a / 2, y - b], [x - a, y], [x - a / 2, y + b], [x + a / 2, y + b], [x + a, y], [x + a / 2, y - b]] : 
+        [[x - b, y - a / 2], [x - b, y + a / 2], [x, y + a], [x + b, y + a / 2], [x + b, y - a / 2], [x, y - a]];
+};
+ 
+    </script>
   </body>
 </html>
