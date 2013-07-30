@@ -1,4 +1,4 @@
-[![Stories in Ready](http://badge.waffle.io/AnnaGerber/hivend.png)](http://waffle.io/AnnaGerber/hivend)  
+[![Stories in Ready](https://badge.waffle.io/AnnaGerber/hivend.png)](http://waffle.io/AnnaGerber/hivend)  
 # hivend
 
 UI and control software for Hive Vending machine
